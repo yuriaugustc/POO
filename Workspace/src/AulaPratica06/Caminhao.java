@@ -2,6 +2,10 @@ package AulaPratica06;
 
 public class Caminhao extends Veiculo{
     private int eixos;
+
+    public Caminhao(){
+
+    }
     public Caminhao(String placa, int ano, int eixos){
         setPlaca(placa);
         setAno(ano);
