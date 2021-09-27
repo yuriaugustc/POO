@@ -1,0 +1,12 @@
+Comentários
+- a hierarquia de funcionário deveria ter a superclasse funcionario, a subclasse medico e a subclasse outros funcionários
+- Nao entendi com qual classe a classe sistema se relaciona
+- a classe salarios não parece resolver problema
+- a classe consulta deve se asociar a varias classes. A classe agendamento está incorreta!
+- deve haver uma classe exame
+- O que é essa hierarquia entre consulta e lista de exames?
+
+
+
+Pontos
+6.3 / 10

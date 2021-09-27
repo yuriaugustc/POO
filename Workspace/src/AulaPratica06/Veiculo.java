@@ -1,6 +1,6 @@
 package AulaPratica06;
 
-public class Veiculo {
+public class Veiculo{
     private String placa;
     private int ano;
 
