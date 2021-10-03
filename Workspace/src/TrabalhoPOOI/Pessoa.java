@@ -3,13 +3,13 @@ package TrabalhoPOOI;
 public class Pessoa {
     private String nome;
     private String data_nascimento;
-    private byte sexo;
+    private String sexo;
     private int CPF;
     private int RG;
     private byte estado_civil;
     private Endereco endereco;
 
-    public Pessoa(String nome, String data_nascimento, byte sexo, int CPF, int RG, char estado_civil, String rua, int nro, String complemento, String bairro, String cep, String cidade) {
+    public Pessoa(String nome, String data_nascimento, String sexo, int CPF, int RG, char estado_civil, String rua, int nro, String complemento, String bairro, String cep, String cidade) {
         this.nome = nome;
         this.data_nascimento = data_nascimento;
         this.sexo = sexo;
@@ -18,6 +18,8 @@ public class Pessoa {
         setEstado_civil(estado_civil);
         setEndereco(rua, nro, complemento, bairro, cep, cidade);
     }
+
+    public Pessoa(){}
 
     public void setEndereco(String rua, int nro, String complemento, String bairro, String cep, String cidade) {
         endereco.setRua(rua);
@@ -54,11 +56,11 @@ public class Pessoa {
             return false;
     }
 
-    public byte getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(byte sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 
