@@ -1,14 +1,16 @@
 package AulaPratica09;
 
-/*public class Empregado implements Comparable<Empregado>{
+import static java.lang.System.*;
+
+public class Empregado implements Comparable {
     private String CPF;
-    private String anoNascimento = "00/00/0000";
+    private String anoNascimento;
     private double salario;
 
     public Empregado(String CPF, String anoNascimento, double salario) {
-        this.CPF = CPF;
-        this.anoNascimento = anoNascimento;
-        this.salario = salario;
+        setCPF(CPF);
+        setAnoNascimento(anoNascimento);
+        setSalario(salario);
     }
 
     public Empregado() {
@@ -38,22 +40,30 @@ package AulaPratica09;
         this.salario = salario;
     }
 
-    public int[] converteString(String ano){
+    public int[] converteString(String ano) {
         int[] data = new int[3];
-        data[0] = Integer.parseInt(ano.substring(0,1));
-        data[1] = Integer.parseInt(ano.substring(3,4));
-        data[2] = Integer.parseInt(ano.substring(6,9));
+        data[0] = Integer.parseInt(ano.substring(0, 1));
+        data[1] = Integer.parseInt(ano.substring(3, 4));
+        data[2] = Integer.parseInt(ano.substring(6, 9));
         return data;
     }
 
     @Override
     public int compareTo(Empregado e1) {
-        int ano[] = converteString(this.anoNascimento);
-        int ano1[] = converteString(e1.anoNascimento);
-        if(ano[2] > ano1[2])
-            if(ano[1] > ano1[1])
-                if(ano[0] > ano[0])
-                    return 1;
+        int[] ano = converteString(this.getAnoNascimento());
+        int[] ano1 = converteString(e1.getAnoNascimento());
+        if (ano[2] > ano1[2])
+            out.println("O empregado de CPF " + this.getCPF() + " eh mais velho que o empregado de CPF " + e1.getCPF());
+        else if (ano[2] == ano1[2]) {
+            if (ano[1] > ano1[1])
+                out.println("O empregado de CPF " + this.getCPF() + " eh mais velho que o empregado de CPF " + e1.getCPF());
+            else if (ano[1] == ano1[1]) {
+                if (ano[0] > ano1[0])
+                    out.println("O empregado de CPF " + this.getCPF() + " eh mais velho que o empregado de CPF " + e1.getCPF());
+                else
+                    out.println("O empregado de CPF " + e1.getCPF() + " eh mais velho que o empregago de CPF " + this.getCPF());
+            }
+        }
         return 0;
     }
-}*/
+}

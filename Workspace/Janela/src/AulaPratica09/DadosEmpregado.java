@@ -3,10 +3,10 @@ package AulaPratica09;
 import java.util.ArrayList;
 
 public class DadosEmpregado extends Empregado{
-    private ArrayList<Empregado> empregados = new ArrayList<>();
+    private ArrayList<Empregado> empregados;
 
-    public DadosEmpregado(Empregado[] emp) {
-        setEmpregados(emp);
+    public DadosEmpregado(String CPF, String anoNascimento, double salario) {
+        super(CPF, anoNascimento, salario);
     }
 
     public DadosEmpregado() {
@@ -52,4 +52,5 @@ public class DadosEmpregado extends Empregado{
             }
         }
     }
+
 }
