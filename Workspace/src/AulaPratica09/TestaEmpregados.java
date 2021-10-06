@@ -4,20 +4,26 @@ import java.util.Scanner;
 
 public class TestaEmpregados {
     public static void main(String[] args) {
-        Scanner leitor;
-        Empregado[] emp = new Empregado[5];
-        emp[0] = new Empregado("12345678910", "12/02/1989", 1251.66);
-        emp[1] = new Empregado("67890238798", "23/12/2005", 5389.90);
-        emp[2] = new Empregado("23092032031", "01/01/2001", 2396.52);
-        emp[3] = new Empregado("09876543219", "02/06/1989", 6560.45);
-        emp[4] = new Empregado("02917374212", "27/04/1999", 5120.32);
-        emp[0].compareTo(emp[3]);
-        emp[4].compareTo(emp[1]);
-        DadosEmpregado empregados = new DadosEmpregado(emp);
+        Scanner leitor = new Scanner(System.in);
+        String cpf, nascimento;
+        double sal;
+        Empregado emp = new Empregado();
+        DadosEmpregado empregados = new DadosEmpregado();
         for (int i = 0; i < 5; i++) {
-            System.out.println(empregados.getEmpregados(i).getCPF());
-            System.out.println(empregados.getEmpregados(i).getAnoNascimento());
-            System.out.println(empregados.getEmpregados(i).getSalario());
+            System.out.println("Digite o CPF do empregado nro" + (i+1) + ":");
+            cpf = leitor.next();
+            System.out.println("Digite a data de nascimento do empregado: (utilize barra de separacao : dd/mm/aaaa)");
+            nascimento = leitor.next();
+            System.out.println("Digite o salario do empregado: ");
+            sal = leitor.nextDouble();
+            empregados.setEmpregados(cpf,nascimento, sal);
+        }
+
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Empregado nro " + (i+1) + ":");
+            System.out.println("CPF: " + empregados.getEmpregados(i).getCPF());
+            System.out.println("Data de Nascimento: " + empregados.getEmpregados(i).getAnoNascimento());
+            System.out.println("Salário: " + empregados.getEmpregados(i).getSalario());
         }
     }
 }

@@ -5,16 +5,15 @@ import java.util.ArrayList;
 public class DadosEmpregado extends Empregado{
     private ArrayList<Empregado> empregados = new ArrayList<>();
 
-    public DadosEmpregado(Empregado[] emp) {
-        setEmpregados(emp);
+    public DadosEmpregado(String CPF, String anoNascimento, double salario) {
+        setEmpregados(CPF, anoNascimento, salario);
     }
 
     public DadosEmpregado() {
     }
 
-    public void setEmpregados(Empregado[] emp) {
-        for (int i = 0; i < emp.length; i++)
-            empregados.add(emp[i]);
+    public void setEmpregados(String CPF, String anoNascimento, double salario) {
+            empregados.add(new Empregado(CPF, anoNascimento, salario));
     }
 
     public Empregado getEmpregados(int i) {
