@@ -1,8 +1,9 @@
 package AulaPratica09;
 
+import java.io.*;
 import static java.lang.System.*;
 
-public class Empregado implements Comparable {
+public class Empregado implements Comparable{
     private String CPF;
     private String anoNascimento;
     private double salario;

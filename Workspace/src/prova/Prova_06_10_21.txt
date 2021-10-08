@@ -1,0 +1,40 @@
+Prova dia 06/10/2021
+Nome: Yuri Augusto da Costa
+Matrícula: 11921BSI244
+
+Ex.1:
+
+A- Correta
+
+B- Falsa - ... . Declarar e Instanciar são conceitos com objetivos diferentes. Declarar significa dizer que o objeto existe, instanciar significa criá-lo, alocá-lo na memória;
+
+C- Falsa - O construtor padrão pode ser criado sem receber nenhum argumento como parametro;
+
+D- Falsa - Polimorfismo é o que permite que que as classes derivadas de uma mesma superclasse possuam métodos iguais e comportamentos
+diferentes. 
+
+Ex.2:
+Impressão gerada pelo código:
+j=2
+    
+j=3
+    
+f = 5.14
+    2
+    3
+    5.14
+
+Explicação do resultado obtido: 
+As variáveis a,b e c foram inicializadas com valor padrão da classe 0; 
+Ao passou que o1 chama duas vezes(linha 8 e 9) "o1 = a.cria();", o1 e "a" foram duas vezes incrementados com o "i++" dentro de "cria()" na classe C2;
+O mesmo acontece para o3 e "c", já acontecendo apenas uma vez com "b" e o2. No entanto, como o "i" em C2 não é zerado ao fim de uso de qualquer objeto que chame-a, "b" e o2 chamaram-na quando a mesma já teria sido chamada duas vezes, ficando assim com valor 3;
+Por ter chamado a "cria()" de C3 duas vezes, o3 e "c" acabaram somando "1" à 3.14 duas vezes, chegando aos seus 5.14; 
+
+Conceitos de O.O implementados:
+Classe, Subclasse, Objeto, Atributo, Métodos, Herança, Abstração, Polimorfismo
+
+3.V = Demonstraria no UML que  o metodo possuiriam uma variavel local "custo" já inicializada com 20;
+
+VII = É necessário criar uma classe envolvidos na reuniao online, que controlaria todos que entrarem para assistir a reuniao, para saber se todos os necessarios assistiram de fato a mesma
+
+VII = Sim, pois com o uso de polimorfismo, a classe calculaCusto poderia apenas ser reescrita encaixando os parametros divergentes entre as reuniões, que no caso era apenas um custo adicional de 20 reais, podendo apenas inicializar a variavel já com este valor; 
