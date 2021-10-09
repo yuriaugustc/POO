@@ -1,0 +1,17 @@
+public static boolean write(Object a, String texto){
+        try {
+            //Gera o arquivo para armazenar os objetos
+            FileOutputStream file = new FileOutputStream("Data");
+            //Classe responsavel por inserir os objetos
+            ObjectOutputStream record = new ObjectOutputStream(file);
+            //Grava o objeto cliente no arquivo
+            record.writeObject(a);
+            record.flush();
+            record.close();
+            file.flush();
+            file.close();
+            return true;
+        }
+        catch(Exception e){   
+            return false;      }
+    }
