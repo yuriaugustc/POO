@@ -1,14 +1,16 @@
 package TrabalhoPOOI;
 
 public class Agendamento {
-    private String nomePaciente;
-    private String nomeMedico;
+    private Paciente paciente;
+    private Medico medico;
+    private Funcionario funcionario;
     private String dataConsulta;
     private String horaConsulta;
     private Consulta consulta;
 
-    public Agendamento(String nomePaciente, String nomeMedico, String dataConsulta, String horaConsulta){
+    public Agendamento(String nomePaciente, String data_nascimento, String sexo, String CPF, String RG, String cpfPaciente, String nomeMedico, String dataConsulta, String horaConsulta){
         setNomePaciente(nomePaciente);
+        setCpfPaciente(cpfPaciente);
         setNomeMedico(nomeMedico);
         setDataConsulta(dataConsulta);
         setHoraConsulta(horaConsulta);
@@ -22,6 +24,18 @@ public class Agendamento {
 
     public void setNomePaciente(String nomePaciente) {
         this.nomePaciente = nomePaciente;
+    }
+
+    public String getCpfPaciente() {
+        return cpfPaciente;
+    }
+
+    public int setCpfPaciente(String cpfPaciente) {
+        if(ValidaCPF.isCPF(cpfPaciente)) {
+            this.cpfPaciente = cpfPaciente;
+            return 0;
+        }else
+            return -1;
     }
 
     public String getNomeMedico() {
@@ -46,5 +60,13 @@ public class Agendamento {
 
     public void setHoraConsulta(String horaConsulta) {
         this.horaConsulta = horaConsulta;
+    }
+
+    public void getConsulta() {
+        consulta.mostraDados();
+    }
+
+    public void setConsulta(String nomePaciente, String cpfPaciente, String nomeMedico, String dataConsulta, String horaConsulta, String[] medicamentos, String receita, double valorConsulta){
+        this.consulta = new Consulta(nomePaciente, cpfPaciente, nomeMedico, dataConsulta, horaConsulta, medicamentos, receita, valorConsulta);
     }
 }

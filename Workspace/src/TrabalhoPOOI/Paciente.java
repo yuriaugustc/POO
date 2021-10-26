@@ -4,7 +4,8 @@ public class Paciente extends Pessoa{
     private String data_cadastro;
     private String ultima_consulta;
 
-    public Paciente(String nome, String data_nascimento, String sexo, int CPF, int RG, char estado_civil, String rua, int nro, String complemento, String bairro, String cep, String cidade) {
+    public Paciente(String nome, String data_nascimento, String sexo, String CPF, String RG, String estado_civil,
+                    String rua, int nro, String complemento, String bairro, String cep, String cidade) {
         super(nome, data_nascimento, sexo, CPF, RG, estado_civil, rua, nro, complemento, bairro, cep, cidade);
     }
 

@@ -1,0 +1,7 @@
+a. Deverão ser criadas telas para manutenção (cadastro, consulta, e remoção) dos
+dados de cada uma das entidades participantes do problema, tais como: pacientes,
+médicos, planos de saúde, etc.
+b. Estas telas deverão chamar as classes e métodos apropriadas para sua
+execução, os quais já foram desenvolvidos nas entregas anteriores.
+c. Crie também telas para os demais requisitos que não sejam de manutenção de
+dados, como por exemplo, o requisito de efetuar consulta.

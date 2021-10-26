@@ -1,13 +1,16 @@
 package TrabalhoPOOI;
 
+import java.util.ArrayList;
+
 public abstract class Funcionario extends Pessoa{
     private String data_admissao;
     private int matricula;
     private String cargo;
     private Salario salario;
     private Sistema sistema;
+    private ArrayList<Consulta> consulta = new ArrayList<>();
 
-    public Funcionario(String nome, String data_nascimento, String sexo, int CPF, int RG, char estado_civil, String rua, int nro, String complemento, String bairro, String cep, String cidade, String admissao, int matricula, String cargo, double salario, String login, String senha) {
+    public Funcionario(String nome, String data_nascimento, String sexo, String CPF, String RG, String estado_civil, String rua, int nro, String complemento, String bairro, String cep, String cidade, String admissao, int matricula, String cargo, double salario, String login, String senha) {
         super(nome, data_nascimento, sexo, CPF, RG, estado_civil, rua, nro, complemento, bairro, cep, cidade);
         setData_admissao(admissao);
         setMatricula(matricula);
@@ -59,5 +62,13 @@ public abstract class Funcionario extends Pessoa{
     public void setSistema(String login, String senha) {
         sistema.setLogin(login);
         sistema.setSenha(senha);
+    }
+
+    public String getLogin() {
+        return sistema.getLogin();
+    }
+
+    public String getSenha(){
+        return sistema.getSenha();
     }
 }

@@ -3,18 +3,17 @@ package TrabalhoPOOI;
 import java.util.ArrayList;
 
 public class Medico extends Funcionario implements Especialidades{
-    private ArrayList<PlanoDeSaude> planosAtendidos;
+    private ArrayList<PlanoDeSaude> planosAtendidos = new ArrayList<PlanoDeSaude>();
     private String CRM;
     private String nomeEspecialidade;
     private String descricaoEspecialidade;
-    private Consulta consulta;
-    private static double SomaConsultaMes;
+    private static double SomaConsultaMes = 0;
 
-    public Medico(String nome, String data_nascimento, String sexo, int CPF, int RG, char estado_civil, String rua, int nro, String complemento, String bairro, String cep, String cidade,  String admissao, int matricula, String cargo, double salario, String login, String senha) {
+    public Medico(String nome, String data_nascimento, String sexo, String CPF, String RG, String estado_civil, String rua, int nro, String complemento, String bairro, String cep, String cidade,  String admissao, int matricula, String cargo, double salario, String login, String senha) {
         super(nome, data_nascimento, sexo, CPF, RG, estado_civil, rua, nro, complemento, bairro, cep, cidade, admissao, matricula, cargo, salario, login, senha);
     }
 
-    public Medico(int CPF, PlanoDeSaude[] planoDeSaude){
+    public Medico(String CPF, PlanoDeSaude[] planoDeSaude){
         setCPF(CPF);
         for(int i = 0; i < planoDeSaude.length; i++)
             planosAtendidos.add(planoDeSaude[i]);
@@ -45,7 +44,7 @@ public class Medico extends Funcionario implements Especialidades{
 
     @Override
     public void CalcularSalario(double sal) {
-        super.setSalario((sal*SomaConsultaMes));
+        super.setSalario((SomaConsultaMes));
     }
 
     public static void zeraSomaConsulta(){
