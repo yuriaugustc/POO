@@ -6,10 +6,6 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import TrabalhoPOOI.DadosPacComPlano;
-import TrabalhoPOOI.PacienteComPlano;
-
 import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -26,12 +22,13 @@ import java.awt.event.ItemListener;
 import java.awt.Component;
 import javax.swing.Box;
 import javax.swing.ButtonGroup;
+import javax.swing.JPasswordField;
 
-public class JCadastroP extends JFrame {
+public class JCadMedAG extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField TNomeCompleto;
-	private JTextField TCPF;
+	private JTextField Tcpf;
 	private JTextField TDataNascimento;
 	private JTextField TSexo;
 	private JTextField TRG;
@@ -42,11 +39,15 @@ public class JCadastroP extends JFrame {
 	private JTextField TCEP;
 	private JTextField TCidade;
 	private JTextField TNumero;
+	private JTextField TCargo;
+	private JTextField TAdmissao;
+	private JTextField TSalario;
+	private JTextField TMatricula;
 
-	public JCadastroP() {
+	public JCadMedAG() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 504, 371);
+		setBounds(100, 100, 504, 426);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -56,8 +57,8 @@ public class JCadastroP extends JFrame {
 		contentPane.add(desktopPane, BorderLayout.CENTER);
 		desktopPane.setLayout(null);
 		
-		JLabel lblAreaCadastro = new JLabel("Area de Cadastro");
-		lblAreaCadastro.setBounds(158, 11, 150, 36);
+		JLabel lblAreaCadastro = new JLabel("Cadastro de Medico ao Agendamento");
+		lblAreaCadastro.setBounds(69, 11, 323, 36);
 		lblAreaCadastro.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 20));
 		desktopPane.add(lblAreaCadastro);
 		
@@ -81,10 +82,10 @@ public class JCadastroP extends JFrame {
 		lblCPF.setFont(new Font("Bookman Old Style", Font.ITALIC, 11));
 		desktopPane.add(lblCPF);
 		
-		TCPF = new JTextField();
-		TCPF.setBounds(168, 103, 114, 23);
-		TCPF.setColumns(10);
-		desktopPane.add(TCPF);
+		Tcpf = new JTextField();
+		Tcpf.setBounds(168, 103, 114, 23);
+		Tcpf.setColumns(10);
+		desktopPane.add(Tcpf);
 		
 		JLabel lblDataNascimento = new JLabel("Data de Nascimento (dd/mm/aaaa): ");
 		lblDataNascimento.setBounds(10, 127, 190, 25);
@@ -96,7 +97,7 @@ public class JCadastroP extends JFrame {
 		TDataNascimento.setColumns(10);
 		desktopPane.add(TDataNascimento);
 		
-		JLabel lblRG = new JLabel("RG: ");
+		JLabel lblRG = new JLabel("RG:");
 		lblRG.setBounds(292, 102, 24, 25);
 		lblRG.setFont(new Font("Bookman Old Style", Font.ITALIC, 11));
 		desktopPane.add(lblRG);
@@ -141,7 +142,7 @@ public class JCadastroP extends JFrame {
 		lblRua.setFont(new Font("Bookman Old Style", Font.ITALIC, 11));
 		desktopPane.add(lblRua);
 		
-		JLabel lblComplemento = new JLabel("Complemento: ");
+		JLabel lblComplemento = new JLabel("Complemento:");
 		lblComplemento.setBounds(10, 235, 79, 25);
 		lblComplemento.setFont(new Font("Bookman Old Style", Font.ITALIC, 11));
 		desktopPane.add(lblComplemento);
@@ -191,60 +192,65 @@ public class JCadastroP extends JFrame {
 		TNumero.setColumns(10);
 		desktopPane.add(TNumero);
 		
-		JLabel lblPossuiUmPlano = new JLabel("Possui um Plano de Saude?");
-		lblPossuiUmPlano.setBounds(10, 289, 150, 25);
-		lblPossuiUmPlano.setFont(new Font("Bookman Old Style", Font.ITALIC, 11));
-		desktopPane.add(lblPossuiUmPlano);
+		JLabel lblInsiraAbaixoOs = new JLabel("Insira abaixo os detalhes empresariais do funcion\u00E1rio:");
+		lblInsiraAbaixoOs.setBounds(10, 289, 302, 16);
+		lblInsiraAbaixoOs.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 13));
+		desktopPane.add(lblInsiraAbaixoOs);
 		
-		JRadioButton rdbtnSim = new JRadioButton("Sim", false);
-		rdbtnSim.setBounds(158, 290, 45, 23);
-		rdbtnSim.setForeground(Color.BLACK);
-		rdbtnSim.setFont(new Font("Bookman Old Style", Font.ITALIC, 11));
-		rdbtnSim.setBackground(SystemColor.window);
-		desktopPane.add(rdbtnSim);
+		JLabel lblCargo = new JLabel("Cargo: ");
+		lblCargo.setBounds(10, 311, 38, 23);
+		lblCargo.setFont(new Font("Bookman Old Style", Font.ITALIC, 11));
+		desktopPane.add(lblCargo);
 		
-		JRadioButton rdbtnNao = new JRadioButton("Nao", false);
-		rdbtnNao.setBounds(209, 290, 45, 23);
-		rdbtnNao.setFont(new Font("Bookman Old Style", Font.ITALIC, 11));
-		rdbtnNao.setBackground(SystemColor.window);
-		desktopPane.add(rdbtnNao);
+		TCargo = new JTextField();
+		TCargo.setText("M\u00E9dico");
+		TCargo.setEditable(false);
+		TCargo.setBounds(47, 311, 123, 23);
+		TCargo.setColumns(10);
+		desktopPane.add(TCargo);
 		
-		ButtonGroup bg = new ButtonGroup(); //adicionar os RadioButtons à um ButtonGroupp faz com apenas um deles possa ser pressionado;
-		bg.add(rdbtnSim);
-		bg.add(rdbtnNao);
+		JLabel lblAdmissao = new JLabel("Admissao: ");
+		lblAdmissao.setBounds(172, 311, 54, 23);
+		lblAdmissao.setFont(new Font("Bookman Old Style", Font.ITALIC, 11));
+		desktopPane.add(lblAdmissao);
 		
-		JButton btnAvancar = new JButton("Avancar");
-		btnAvancar.setBounds(262, 290, 206, 23);
-		btnAvancar.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 13));
-		desktopPane.add(btnAvancar);
-		btnAvancar.addActionListener(new ActionListener() {
+		TAdmissao = new JTextField();
+		TAdmissao.setBounds(230, 311, 96, 23);
+		TAdmissao.setColumns(10);
+		desktopPane.add(TAdmissao);
+		
+		JLabel lblSalario = new JLabel("Salario: ");
+		lblSalario.setFont(new Font("Bookman Old Style", Font.ITALIC, 11));
+		lblSalario.setBounds(329, 311, 45, 23);
+		desktopPane.add(lblSalario);
+		
+		TSalario = new JTextField();
+		TSalario.setColumns(10);
+		TSalario.setBounds(372, 311, 96, 23);
+		desktopPane.add(TSalario);
+		
+		JLabel lblMatricula = new JLabel("Matricula: ");
+		lblMatricula.setFont(new Font("Bookman Old Style", Font.ITALIC, 11));
+		lblMatricula.setBounds(10, 334, 54, 23);
+		desktopPane.add(lblMatricula);
+		
+		TMatricula = new JTextField();
+		TMatricula.setColumns(10);
+		TMatricula.setBounds(69, 335, 96, 23);
+		desktopPane.add(TMatricula);
+		
+		JButton btnConcluir = new JButton("Concluir");
+		btnConcluir.setBounds(262, 345, 206, 23);
+		btnConcluir.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 13));
+		desktopPane.add(btnConcluir);
+		btnConcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(rdbtnSim.isSelected()) {
-					JCadastroPST Plano = new JCadastroPST();
-					dispose();
-					Plano.setVisible(true);
-					Plano.setLocationRelativeTo(null);
-					PacienteComPlano pac = new PacienteComPlano();
-					pac.setNome(TNomeCompleto.getText());
-					pac.setData_nascimento(getName());
-					pac.setCPF(TCPF.getText());
-					pac.setData_nascimento(TDataNascimento.getText());
-					pac.setRG(TRG.getText());
-					pac.setSexo(TSexo.getText());
-					pac.setEstado_civil(TEstado_civil.getText());
-					int nro = Integer.parseInt(TNumero.getText());
-					pac.setEndereco(TRua.getText(), nro, TComplemento.getText(), TBairro.getText(), TCPF.getText(), TCidade.getText());
-					
-					dadosPacComPlano.cadastra(pac);
-				}
-				else if(rdbtnNao.isSelected()) {
-					JCadastroPSF Plano = new JCadastroPSF();
-					dispose();
-					Plano.setVisible(true);
-					Plano.setLocationRelativeTo(null);
-				}
+				JCadM cadastro = new JCadM();
+				cadastro.setVisible(true);
+				cadastro.setLocationRelativeTo(null);
+				cadastro.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+				dispose();
 			}
 		});
 	}
-	
 }

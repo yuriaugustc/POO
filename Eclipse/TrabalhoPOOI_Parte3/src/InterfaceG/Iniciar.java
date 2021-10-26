@@ -6,11 +6,6 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import TrabalhoPOOI.DadosFuncionarios;
-import TrabalhoPOOI.DadosPacComPlano;
-import TrabalhoPOOI.DadosPacSemPlano;
-
 import javax.swing.JLayeredPane;
 import javax.swing.JLabel;
 import javax.swing.JDesktopPane;
@@ -20,6 +15,8 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import javax.swing.ImageIcon;
+import java.awt.Toolkit;
 
 public class Iniciar extends JFrame {
 
@@ -47,9 +44,6 @@ public class Iniciar extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		DadosPacComPlano pacComPlan = new DadosPacComPlano();
-		DadosPacSemPlano pacSemPlan = new DadosPacSemPlano();
-		DadosFuncionarios func = new DadosFuncinarios();
 		
 		JDesktopPane desktopPane = new JDesktopPane();
 		contentPane.add(desktopPane, BorderLayout.CENTER);

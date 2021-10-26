@@ -15,4 +15,8 @@
     <fullyQualifiedTypeName name="java.io.ObjectInputStream"/>
     <fullyQualifiedTypeName name="java.io.Serializable"/>
     <fullyQualifiedTypeName name="TrabalhoPOOI.Paciente"/>
+    <fullyQualifiedTypeName name="TrabalhoPOOI.PacienteComPlano"/>
+    <fullyQualifiedTypeName name="TrabalhoPOOI.DadosPacComPlano"/>
+    <fullyQualifiedTypeName name="TrabalhoPOOI.DadosPacSemPlano"/>
+    <fullyQualifiedTypeName name="TrabalhoPOOI.DadosFuncionarios"/>
 </qualifiedTypeNameHistroy>

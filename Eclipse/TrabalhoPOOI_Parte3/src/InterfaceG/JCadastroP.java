@@ -7,8 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import TrabalhoPOOI.DadosPacComPlano;
-import TrabalhoPOOI.PacienteComPlano;
+import TrabalhoPOOI.Paciente;
 
 import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
@@ -217,25 +216,19 @@ public class JCadastroP extends JFrame {
 		btnAvancar.setBounds(262, 290, 206, 23);
 		btnAvancar.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 13));
 		desktopPane.add(btnAvancar);
+		
 		btnAvancar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Paciente pac = new Paciente();
+				pac.setNome(TNomeCompleto.getText());
+				pac.setData_nascimento(getName());
+				pac.setCPF(TCPF.getText());
+				//pac.
 				if(rdbtnSim.isSelected()) {
 					JCadastroPST Plano = new JCadastroPST();
 					dispose();
 					Plano.setVisible(true);
 					Plano.setLocationRelativeTo(null);
-					PacienteComPlano pac = new PacienteComPlano();
-					pac.setNome(TNomeCompleto.getText());
-					pac.setData_nascimento(getName());
-					pac.setCPF(TCPF.getText());
-					pac.setData_nascimento(TDataNascimento.getText());
-					pac.setRG(TRG.getText());
-					pac.setSexo(TSexo.getText());
-					pac.setEstado_civil(TEstado_civil.getText());
-					int nro = Integer.parseInt(TNumero.getText());
-					pac.setEndereco(TRua.getText(), nro, TComplemento.getText(), TBairro.getText(), TCPF.getText(), TCidade.getText());
-					
-					dadosPacComPlano.cadastra(pac);
 				}
 				else if(rdbtnNao.isSelected()) {
 					JCadastroPSF Plano = new JCadastroPSF();

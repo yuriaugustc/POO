@@ -11,8 +11,6 @@ public class PacienteSemPlano extends PacienteComPlano implements Serializable{
         this.setDesconto_especial(desconto_especial);
         this.setValor_ult_consulta(valor_ult_consulta);
     }
-    
-    public PacienteSemPlano() {}
 
     public int getDesconto_especial() {
         return desconto_especial;

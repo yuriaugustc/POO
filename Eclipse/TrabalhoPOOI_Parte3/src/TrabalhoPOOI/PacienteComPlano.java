@@ -15,22 +15,19 @@ public class PacienteComPlano extends Paciente implements Serializable{
     public PacienteComPlano(String nome, String data_nascimento, String sexo, String CPF, String RG, String estado_civil, String rua, int nro, String complemento, String bairro, String cep, String cidade,
                             String nomePlano, String cnpj, String ruaP, int nroP, String complementoP, String bairroP, String cepP, String cidadeP) {
         super(nome, data_nascimento, sexo, CPF, RG, estado_civil, rua, nro, complemento, bairro, cep, cidade);
-        setPlanoAtivo(nomePlano, cnpj, ruaP, nroP, complementoP, bairroP, cepP, cidadeP);
+        planoAtivo.setNome(nomePlano);
+        planoAtivo.setCNPJ(cnpj);
+        planoAtivo.setEndereco(ruaP, nroP, complementoP, bairroP, cepP, cidadeP);
     }
 
-    public PacienteComPlano() {
-	}
-
-	public String getPlanoAtivo(){
+    public String getPlanoAtivo(){
         return  "\nNome: " + planoAtivo.getNome() +
                 "\nCNPJ: " + planoAtivo.getCNPJ() +
                 "\nEndereco: " + planoAtivo.getEndereco();
     }
 
-    public void setPlanoAtivo(String nomePlano, String cnpj, String ruaP, int nroP, String complementoP, String bairroP, String cepP, String cidadeP) {
-    	planoAtivo.setNome(nomePlano);
-        planoAtivo.setCNPJ(cnpj);
-        planoAtivo.setEndereco(ruaP, nroP, complementoP, bairroP, cepP, cidadeP);
+    public void setPlanoAtivo(PlanoDeSaude planoAtivo) {
+        this.planoAtivo = planoAtivo;
     }
 
     public int getNroCarteirinha() {
