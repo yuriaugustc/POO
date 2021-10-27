@@ -4,23 +4,23 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class DadosPacComPlano extends DadosPaciente implements Serializable {
-    private ArrayList<PacienteComPlano> vetPac = new ArrayList<PacienteComPlano>();
+    private static ArrayList<PacienteComPlano> vetPac = new ArrayList<PacienteComPlano>();
 
-    public void cadastra(PacienteComPlano c){
-        this.vetPac.add(c);//ADICIONA O PACIENTE NO ARRAY
+    public static void cadastra(PacienteComPlano c){
+        vetPac.add(c);//ADICIONA O PACIENTE NO ARRAY
         System.out.println("Total de pacientes:");
-        System.out.println(this.vetPac.size());
+        System.out.println(vetPac.size());
     }
 
     public void list(){
-        for(PacienteComPlano objeto : this.vetPac) {
+        for(PacienteComPlano objeto : vetPac) {
             objeto.mostraDados();
         }
     }
     //este método retorna o objeto Paciente caso encontrado, ou null, caso não encontrado
-    public PacienteComPlano search(String cpf){
+    public static PacienteComPlano search(String cpf){
         PacienteComPlano c = null;
-        for(PacienteComPlano objeto : this.vetPac){
+        for(PacienteComPlano objeto : vetPac){
             if(objeto.getCPF().equals(cpf)){
                 c = objeto;
                 break;
@@ -29,18 +29,18 @@ public class DadosPacComPlano extends DadosPaciente implements Serializable {
         return c;
     }
     //este método usa o método buscar já implementado
-    public boolean remove(String cpf){
-        PacienteComPlano c = this.search(cpf);
+    public static boolean remove(String cpf){
+        PacienteComPlano c = search(cpf);
         if(c!=null){
-            this.vetPac.remove(c);
+            vetPac.remove(c);
             return true;
         }else{
             return false;
         }
     }
     
-    public void write() {
-    	for(PacienteComPlano pac : this.vetPac) {
+    public static void write() {
+    	for(PacienteComPlano pac : vetPac) {
     		Persist.write(pac, "dadosPacientesComPlano");
     	}
     }

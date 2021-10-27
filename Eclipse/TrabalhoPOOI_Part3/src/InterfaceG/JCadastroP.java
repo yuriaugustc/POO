@@ -8,7 +8,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import TrabalhoPOOI.DadosPacComPlano;
+import TrabalhoPOOI.DadosPacSemPlano;
 import TrabalhoPOOI.PacienteComPlano;
+import TrabalhoPOOI.Persist;
 
 import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
@@ -220,10 +222,6 @@ public class JCadastroP extends JFrame {
 		btnAvancar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(rdbtnSim.isSelected()) {
-					JCadastroPST Plano = new JCadastroPST();
-					dispose();
-					Plano.setVisible(true);
-					Plano.setLocationRelativeTo(null);
 					PacienteComPlano pac = new PacienteComPlano();
 					pac.setNome(TNomeCompleto.getText());
 					pac.setData_nascimento(getName());
@@ -234,11 +232,26 @@ public class JCadastroP extends JFrame {
 					pac.setEstado_civil(TEstado_civil.getText());
 					int nro = Integer.parseInt(TNumero.getText());
 					pac.setEndereco(TRua.getText(), nro, TComplemento.getText(), TBairro.getText(), TCPF.getText(), TCidade.getText());
-					
-					dadosPacComPlano.cadastra(pac);
+					DadosPacComPlano.cadastra(pac);
+					Persist.write(pac, "dadosPacienteComPlano");
+					JCadastroPST Plano = new JCadastroPST(TCPF.getText());
+					dispose();
+					Plano.setVisible(true);
+					Plano.setLocationRelativeTo(null);
 				}
 				else if(rdbtnNao.isSelected()) {
-					JCadastroPSF Plano = new JCadastroPSF();
+					PacienteComPlano pac = new PacienteComPlano();
+					pac.setNome(TNomeCompleto.getText());
+					pac.setData_nascimento(getName());
+					pac.setCPF(TCPF.getText());
+					pac.setData_nascimento(TDataNascimento.getText());
+					pac.setRG(TRG.getText());
+					pac.setSexo(TSexo.getText());
+					pac.setEstado_civil(TEstado_civil.getText());
+					int nro = Integer.parseInt(TNumero.getText());
+					pac.setEndereco(TRua.getText(), nro, TComplemento.getText(), TBairro.getText(), TCPF.getText(), TCidade.getText());
+					DadosPacSemPlano.cadastra(pac);
+					JCadastroPSF Plano = new JCadastroPSF(TCPF.getText());
 					dispose();
 					Plano.setVisible(true);
 					Plano.setLocationRelativeTo(null);

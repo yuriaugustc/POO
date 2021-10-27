@@ -6,6 +6,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import TrabalhoPOOI.DadosPacSemPlano;
+import TrabalhoPOOI.PacienteSemPlano;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -21,7 +25,7 @@ public class JCadastroPSF extends JFrame {
 	private JTextField TDataUltConsulta;
 	private JTextField TValorUltConsulta;
 
-	public JCadastroPSF() {
+	public JCadastroPSF(String cpf) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 473, 250);
 		contentPane = new JPanel();
@@ -85,6 +89,14 @@ public class JCadastroPSF extends JFrame {
 		contentPane.add(lblR);
 		Concluir.addActionListener( new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
+				PacienteSemPlano pac = new PacienteSemPlano();
+				pac = DadosPacSemPlano.search(cpf);
+				pac.setUltima_consulta(TDataUltConsulta.getText());
+				double vlr = Double.parseDouble(TValorUltConsulta.getText());
+				pac.setValor_ult_consulta(vlr);
+				DadosPacSemPlano.remove(cpf);
+				DadosPacSemPlano.cadastra(pac);
+				DadosPacSemPlano.write();
 				dispose();
 			}
 		});

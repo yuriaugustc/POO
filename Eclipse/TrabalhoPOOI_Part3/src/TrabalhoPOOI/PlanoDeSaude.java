@@ -6,16 +6,16 @@ public class PlanoDeSaude {
     private Endereco endereco;
 
     public PlanoDeSaude(String nome, String CNPJ, String rua, int nro, String complemento, String bairro, String cep, String cidade) {
-        setNome(nome);
+        setNomePlano(nome);
         setCNPJ(CNPJ);
         setEndereco(rua, nro, complemento, bairro, cep, cidade);
     }
     public PlanoDeSaude(String nome){
-        setNome(nome);
+        setNomePlano(nome);
     }
 
     public PlanoDeSaude(String nome, String cnpj){
-        setNome(nome);
+        setNomePlano(nome);
         setCNPJ(cnpj);
     }
 
@@ -23,7 +23,7 @@ public class PlanoDeSaude {
         return Nome;
     }
 
-    public void setNome(String nome) {
+    public void setNomePlano(String nome) {
         Nome = nome;
     }
 

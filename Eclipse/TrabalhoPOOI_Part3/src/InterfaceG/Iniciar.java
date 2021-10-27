@@ -47,9 +47,6 @@ public class Iniciar extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		DadosPacComPlano pacComPlan = new DadosPacComPlano();
-		DadosPacSemPlano pacSemPlan = new DadosPacSemPlano();
-		DadosFuncionarios func = new DadosFuncinarios();
 		
 		JDesktopPane desktopPane = new JDesktopPane();
 		contentPane.add(desktopPane, BorderLayout.CENTER);

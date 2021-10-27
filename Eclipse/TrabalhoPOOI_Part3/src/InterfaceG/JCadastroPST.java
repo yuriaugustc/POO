@@ -6,6 +6,12 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import TrabalhoPOOI.DadosPacComPlano;
+import TrabalhoPOOI.DadosPacSemPlano;
+import TrabalhoPOOI.PacienteComPlano;
+import TrabalhoPOOI.PacienteSemPlano;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -26,9 +32,9 @@ public class JCadastroPST extends JFrame {
 	private JTextField TComplemento;
 	private JTextField TBairro;
 	private JTextField TCEP;
-	private JTextField textField;
+	private JTextField TCidade;
 
-	public JCadastroPST() {
+	public JCadastroPST(String cpf) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 456, 299);
 		contentPane = new JPanel();
@@ -126,10 +132,10 @@ public class JCadastroPST extends JFrame {
 		lblCidade.setBounds(207, 205, 57, 22);
 		contentPane.add(lblCidade);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(265, 205, 165, 22);
-		contentPane.add(textField);
+		TCidade = new JTextField();
+		TCidade.setColumns(10);
+		TCidade.setBounds(265, 205, 165, 22);
+		contentPane.add(TCidade);
 		
 		JLabel lblCarencia = new JLabel("Esta em periodo de carencia? ");
 		lblCarencia.setFont(new Font("Bookman Old Style", Font.PLAIN, 13));
@@ -154,8 +160,16 @@ public class JCadastroPST extends JFrame {
 		contentPane.add(Concluir);
 		Concluir.addActionListener( new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				if(rdbtnSim.isSelected() || rdbtnNao.isSelected())
+				if(rdbtnSim.isSelected() || rdbtnNao.isSelected()) {
+					PacienteComPlano pac = new PacienteComPlano();
+					pac = DadosPacComPlano.search(cpf);
+					int vlr = Integer.parseInt(TNumero.getText());
+					pac.setPlanoAtivo(TNomePlano.getText(), TCNPJ.getText(), TRua.getText(), vlr, TComplemento.getText(), TBairro.getText(), TCEP.getText(), TCidade.getText());
+					DadosPacSemPlano.remove(cpf);
+					DadosPacSemPlano.cadastra(pac);
+					DadosPacSemPlano.write();
 					dispose();
+				}
 			}
 		});
 		

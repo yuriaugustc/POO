@@ -4,12 +4,12 @@ import java.io.*;
 import java.util.ArrayList;
 
 public abstract class DadosPaciente implements Serializable {
-    private ArrayList<Paciente> vetPac = new ArrayList<Paciente>();
+    private static ArrayList<Paciente> vetPac = new ArrayList<Paciente>();
 
-    public void cadastra(Paciente c){
-        this.vetPac.add(c);//ADICIONA O PACIENTE NO ARRAY
+    public static void cadastra(Paciente c){
+        vetPac.add(c);//ADICIONA O PACIENTE NO ARRAY
         System.out.println("Total de pacientes:");
-        System.out.println(this.vetPac.size());
+        System.out.println(vetPac.size());
     }
 
     public void list(){
@@ -18,9 +18,9 @@ public abstract class DadosPaciente implements Serializable {
         }
     }
     //este método retorna o objeto Paciente caso encontrado, ou null, caso não encontrado
-    public Paciente search(String cpf){
+    public static Paciente search(String cpf){
         Paciente c = null;
-        for(Paciente objeto : this.vetPac){
+        for(Paciente objeto : vetPac){
             if(objeto.getCPF().equals(cpf)){
                 c = objeto;
                 break;
@@ -29,18 +29,18 @@ public abstract class DadosPaciente implements Serializable {
         return c;
     }
     //este método usa o método buscar já implementado
-    public boolean remove(String cpf){
-        Paciente c = this.search(cpf);
+    public static boolean remove(String cpf){
+        Paciente c = search(cpf);
         if(c!=null){
-            this.vetPac.remove(c);
+            vetPac.remove(c);
             return true;
         }else{
             return false;
         }
     }
     
-    public void write() {
-    	for(Paciente pac : this.vetPac) {
+    public static void write() {
+    	for(Paciente pac : vetPac) {
     		Persist.write(pac, "dadosPacientes");
     	}
     }

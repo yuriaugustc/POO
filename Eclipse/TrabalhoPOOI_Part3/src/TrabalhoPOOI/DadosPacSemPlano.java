@@ -4,12 +4,12 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class DadosPacSemPlano extends DadosPaciente implements Serializable {
-    private ArrayList<PacienteSemPlano> vetPac = new ArrayList<PacienteSemPlano>();
+    private static ArrayList<PacienteSemPlano> vetPac = new ArrayList<PacienteSemPlano>();
 
-    public void cadastra(PacienteSemPlano c){
-        this.vetPac.add(c);//ADICIONA O PACIENTE NO ARRAY
+    public static void cadastra(PacienteSemPlano c){
+        vetPac.add(c);//ADICIONA O PACIENTE NO ARRAY
         System.out.println("Total de pacientes:");
-        System.out.println(this.vetPac.size());
+        System.out.println(vetPac.size());
     }
 
     public void list(){
@@ -18,9 +18,9 @@ public class DadosPacSemPlano extends DadosPaciente implements Serializable {
         }
     }
     //este método retorna o objeto Paciente caso encontrado, ou null, caso não encontrado
-    public PacienteSemPlano search(String cpf){
+    public static PacienteSemPlano search(String cpf){
         PacienteSemPlano c = null;
-        for(PacienteSemPlano objeto : this.vetPac){
+        for(PacienteSemPlano objeto : vetPac){
             if(objeto.getCPF().equals(cpf)){
                 c = objeto;
                 break;
@@ -29,20 +29,24 @@ public class DadosPacSemPlano extends DadosPaciente implements Serializable {
         return c;
     }
     //este método usa o método buscar já implementado
-    public boolean remove(String cpf){
-        PacienteSemPlano c = this.search(cpf);
+    public static boolean remove(String cpf){
+        PacienteSemPlano c = search(cpf);
         if(c!=null){
-            this.vetPac.remove(c);
+            vetPac.remove(c);
             return true;
         }else{
             return false;
         }
     }
     
-    public void write() {
-    	for(PacienteSemPlano pac : this.vetPac) {
+    public static void write() {
+    	for(PacienteSemPlano pac : vetPac) {
     		Persist.write(pac, "dadosPacientesSemPlano");
     	}
+    }
+    
+    public static PacienteSemPlano recovery(String cpf) {
+    	return (PacienteSemPlano) Persist.recovery(cpf);
     }
 
     public void writeBinary() {
