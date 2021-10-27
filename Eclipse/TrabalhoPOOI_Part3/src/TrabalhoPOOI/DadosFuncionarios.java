@@ -7,24 +7,24 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class DadosFuncionarios {
-    private ArrayList<Funcionario> vetFunc = new ArrayList<Funcionario>();
+    private static ArrayList<Funcionario> vetFunc = new ArrayList<Funcionario>();
 
-    public void cadastrar(Funcionario c) {
-        this.vetFunc.add(c);//ADICIONA O PACIENTE NO ARRAY
+    public static void cadastrar(Funcionario c) {
+        vetFunc.add(c);//ADICIONA O PACIENTE NO ARRAY
         System.out.println("Total de Funcionarios:");
-        System.out.println(this.vetFunc.size());
+        System.out.println(vetFunc.size());
     }
 
-    public void listar() {
-        for (Funcionario objeto : this.vetFunc) {
+    public static void listar() {
+        for (Funcionario objeto : vetFunc) {
             objeto.mostraDados();
         }
     }
 
     //este método retorna o objeto Funcionario caso encontrado, ou null, caso não encontrado
-    public Funcionario buscar(String cpf) {
+    public static Funcionario buscar(String cpf) {
         Funcionario c = null;
-        for (Funcionario objeto : this.vetFunc) {
+        for (Funcionario objeto : vetFunc) {
             if (objeto.getCPF().equals(cpf)) {
                 c = objeto;
                 break;
@@ -33,18 +33,18 @@ public class DadosFuncionarios {
         return c;
     }
     //este método usa o método search já implementado
-    public boolean remove (String cpf){
-        Funcionario c = this.buscar(cpf);
+    public static boolean remove (String cpf){
+        Funcionario c = buscar(cpf);
         if (c != null) {
-            this.vetFunc.remove(c);
+            vetFunc.remove(c);
             return true;
         } else {
             return false;
         }
     }
 
-    public void write() {
-    	for(Funcionario func : this.vetFunc) {
+    public static void write() {
+    	for(Funcionario func : vetFunc) {
     		Persist.write(func, "dadosFuncionarios");
     	}
     }

@@ -28,7 +28,7 @@ public class PacienteComPlano extends Paciente implements Serializable{
     }
 
     public void setPlanoAtivo(String nomePlano, String cnpj, String ruaP, int nroP, String complementoP, String bairroP, String cepP, String cidadeP) {
-    	planoAtivo.setNome(nomePlano);
+    	planoAtivo.setNomePlano(nomePlano);
         planoAtivo.setCNPJ(cnpj);
         planoAtivo.setEndereco(ruaP, nroP, complementoP, bairroP, cepP, cidadeP);
     }

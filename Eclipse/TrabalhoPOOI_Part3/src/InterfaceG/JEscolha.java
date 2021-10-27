@@ -116,7 +116,7 @@ public class JEscolha extends JFrame {
 		btnPlanoSaude.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(st.equals("Cadastro")) {
-					JCadastroPST plano = new JCadastroPST();
+					JCadastroPST plano = new JCadastroPST("cadPlan");
 					plano.setVisible(true);
 					plano.setLocationRelativeTo(null);
 					dispose();

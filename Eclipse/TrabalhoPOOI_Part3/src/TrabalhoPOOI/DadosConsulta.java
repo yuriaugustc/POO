@@ -4,25 +4,23 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class DadosConsulta implements Serializable {
-    private ArrayList<Consulta> vetConsulta = new ArrayList<Consulta>();
-    private Persist dados;
+    private static ArrayList<Consulta> vetConsulta = new ArrayList<Consulta>();
 
-    public void cadastra(Consulta c){
-        this.vetConsulta.add(c);//ADICIONA O PACIENTE NO ARRAY
+    public static void cadastra(Consulta c){
+        vetConsulta.add(c);//ADICIONA O PACIENTE NO ARRAY
         System.out.println("Total de pacientes:");
-        System.out.println(this.vetConsulta.size());
-        write();
+        System.out.println(vetConsulta.size());
     }
 
-    public void list(){
-        for(Consulta objeto : this.vetConsulta) {
+    public static void list(){
+        for(Consulta objeto : vetConsulta) {
             objeto.mostraDados();
         }
     }
     //este método retorna o objeto Consulta caso encontrado, ou null, caso não encontrado
-    public Consulta search(String cpf){
+    public static Consulta search(String cpf){
         Consulta c = null;
-        for(Consulta objeto : this.vetConsulta){
+        for(Consulta objeto : vetConsulta){
             if(objeto.getPaciente().getCPF().equals(cpf)){
                 c = objeto;
                 break;
@@ -31,10 +29,10 @@ public class DadosConsulta implements Serializable {
         return c;
     }
     //este método usa o método search já implementado
-    public boolean remove(String cpf){
-        Consulta c = this.search(cpf);
+    public static boolean remove(String cpf){
+        Consulta c = search(cpf);
         if(c!=null){
-            this.vetConsulta.remove(c);
+            vetConsulta.remove(c);
             return true;
         }else{
             return false;

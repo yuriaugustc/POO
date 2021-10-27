@@ -11,6 +11,8 @@ import TrabalhoPOOI.DadosPacComPlano;
 import TrabalhoPOOI.DadosPacSemPlano;
 import TrabalhoPOOI.PacienteComPlano;
 import TrabalhoPOOI.PacienteSemPlano;
+import TrabalhoPOOI.Persist;
+import TrabalhoPOOI.PlanoDeSaude;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -161,6 +163,13 @@ public class JCadastroPST extends JFrame {
 		Concluir.addActionListener( new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				if(rdbtnSim.isSelected() || rdbtnNao.isSelected()) {
+					if(cpf.equals("cadPlan")) {
+						int vlr = Integer.parseInt(TNumero.getText());
+						PlanoDeSaude plan = new PlanoDeSaude(TNomePlano.getText(), TCNPJ.getText(), 
+								TRua.getText(), vlr, TComplemento.getText(), TBairro.getText(), TCEP.getText(),TCidade.getText());
+						Persist.write(plan, "DadosPlanos");
+					}
+					else {
 					PacienteComPlano pac = new PacienteComPlano();
 					pac = DadosPacComPlano.search(cpf);
 					int vlr = Integer.parseInt(TNumero.getText());
@@ -168,6 +177,7 @@ public class JCadastroPST extends JFrame {
 					DadosPacSemPlano.remove(cpf);
 					DadosPacSemPlano.cadastra(pac);
 					DadosPacSemPlano.write();
+					}
 					dispose();
 				}
 			}
