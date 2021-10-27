@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="TrabalhoPOOI.PacienteSemPlano"/>
+    <fullyQualifiedTypeName name="TrabalhoPOOI.DadosPlanoSaude"/>
+    <fullyQualifiedTypeName name="TrabalhoPOOI.Consulta"/>
+    <fullyQualifiedTypeName name="TrabalhoPOOI.DadosFuncionarios"/>
+    <fullyQualifiedTypeName name="TrabalhoPOOI.Funcionario"/>
+    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+    <fullyQualifiedTypeName name="TrabalhoPOOI.Paciente"/>
+    <fullyQualifiedTypeName name="TrabalhoPOOI.DadosPaciente"/>
+</qualifiedTypeNameHistroy>

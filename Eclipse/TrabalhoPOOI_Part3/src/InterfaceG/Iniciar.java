@@ -7,24 +7,18 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import TrabalhoPOOI.DadosFuncionarios;
-import TrabalhoPOOI.DadosPacComPlano;
-import TrabalhoPOOI.DadosPacSemPlano;
-
-import javax.swing.JLayeredPane;
 import javax.swing.JLabel;
 import javax.swing.JDesktopPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 
 public class Iniciar extends JFrame {
 
 	private JPanel contentPane;
-	 // Launch the application.
+
+	// Launch the application.
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -36,9 +30,10 @@ public class Iniciar extends JFrame {
 					e.printStackTrace();
 				}
 			}
-		}); 
+		});
 	}
-	 // Create the frame.
+
+	// Create the frame.
 	public Iniciar() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -47,20 +42,20 @@ public class Iniciar extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		
+
 		JDesktopPane desktopPane = new JDesktopPane();
 		contentPane.add(desktopPane, BorderLayout.CENTER);
-		
+
 		JLabel tittle = new JLabel("Bem Vindo!");
 		tittle.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 25));
 		tittle.setBounds(147, 11, 125, 25);
 		desktopPane.add(tittle);
-		
+
 		JLabel selecao = new JLabel("O que deseja fazer?");
 		selecao.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 14));
 		selecao.setBounds(147, 47, 118, 25);
 		desktopPane.add(selecao);
-		
+
 		JButton cadastro = new JButton("Cadastro");
 		cadastro.setFont(new Font("Bookman Old Style", Font.ITALIC, 14));
 		cadastro.addActionListener(new ActionListener() {
@@ -73,7 +68,7 @@ public class Iniciar extends JFrame {
 		});
 		cadastro.setBounds(27, 90, 151, 39);
 		desktopPane.add(cadastro);
-		
+
 		JButton consulta = new JButton("Consulta");
 		consulta.setFont(new Font("Bookman Old Style", Font.ITALIC, 14));
 		consulta.addActionListener(new ActionListener() {
@@ -86,7 +81,7 @@ public class Iniciar extends JFrame {
 		});
 		consulta.setBounds(27, 140, 151, 39);
 		desktopPane.add(consulta);
-		
+
 		JButton login = new JButton("Login no Sistema");
 		login.setFont(new Font("Bookman Old Style", Font.ITALIC, 14));
 		login.setBounds(131, 184, 151, 39);
@@ -99,7 +94,7 @@ public class Iniciar extends JFrame {
 			}
 		});
 		desktopPane.add(login);
-		
+
 		JButton remove = new JButton("Exclusao");
 		remove.setFont(new Font("Bookman Old Style", Font.ITALIC, 14));
 		remove.setBounds(228, 140, 151, 39);
@@ -112,7 +107,7 @@ public class Iniciar extends JFrame {
 			}
 		});
 		desktopPane.add(remove);
-		
+
 		JButton btnAgendamento = new JButton("Agendamento");
 		btnAgendamento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
