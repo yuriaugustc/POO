@@ -231,7 +231,7 @@ public class JCadastroP extends JFrame {
 					pac.setSexo(TSexo.getText());
 					pac.setEstado_civil(TEstado_civil.getText());
 					int nro = Integer.parseInt(TNumero.getText());
-					pac.setEndereco(TRua.getText(), nro, TComplemento.getText(), TBairro.getText(), TCPF.getText(), TCidade.getText());
+					pac.setEndereco(TRua.getText(), nro, TComplemento.getText(), TBairro.getText(), TCEP.getText(), TCidade.getText());
 					DadosPacComPlano.cadastra(pac);
 					Persist.write(pac, "dadosPacienteComPlano");
 					JCadastroPST Plano = new JCadastroPST(TCPF.getText());
@@ -242,14 +242,14 @@ public class JCadastroP extends JFrame {
 				else if(rdbtnNao.isSelected()) {
 					PacienteComPlano pac = new PacienteComPlano();
 					pac.setNome(TNomeCompleto.getText());
-					pac.setData_nascimento(getName());
+					pac.setData_nascimento(TDataNascimento.getText());
 					pac.setCPF(TCPF.getText());
 					pac.setData_nascimento(TDataNascimento.getText());
 					pac.setRG(TRG.getText());
 					pac.setSexo(TSexo.getText());
 					pac.setEstado_civil(TEstado_civil.getText());
 					int nro = Integer.parseInt(TNumero.getText());
-					pac.setEndereco(TRua.getText(), nro, TComplemento.getText(), TBairro.getText(), TCPF.getText(), TCidade.getText());
+					pac.setEndereco(TRua.getText(), nro, TComplemento.getText(), TBairro.getText(), TCEP.getText(), TCidade.getText());
 					DadosPacSemPlano.cadastra(pac);
 					JCadastroPSF Plano = new JCadastroPSF(TCPF.getText());
 					dispose();

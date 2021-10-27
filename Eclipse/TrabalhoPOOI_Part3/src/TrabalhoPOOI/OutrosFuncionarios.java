@@ -8,7 +8,9 @@ public class OutrosFuncionarios extends Medico{
         super(nome, data_nascimento, sexo, CPF, RG, estado_civil, rua, nro, complemento, bairro, cep, cidade, admissao, matricula, cargo, salario, login, senha);
     }
 
-    @Override
+    public OutrosFuncionarios() {}
+
+	@Override
     public void CalcularSalario(double salario) {
         int minConsultas = consulta.getMinConsultas();
         int nroConsultas = consulta.getNroConsultas();

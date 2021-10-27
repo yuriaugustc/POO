@@ -6,6 +6,13 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import TrabalhoPOOI.DadosFuncionarios;
+import TrabalhoPOOI.DadosPacComPlano;
+import TrabalhoPOOI.Funcionario;
+import TrabalhoPOOI.Medico;
+import TrabalhoPOOI.OutrosFuncionarios;
+
 import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -266,11 +273,48 @@ public class JCadastroF extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String aux = TCargo.getText().toLowerCase();
 				if(aux.equals("medico") || aux.equals("médico")) {
-					JCadastroM med = new JCadastroM();
+					Medico medico = new Medico();
+					medico.setNome(TNomeCompleto.getText());
+					medico.setData_nascimento(TDataNascimento.getText());
+					medico.setCPF(Tcpf.getText());
+					medico.setData_nascimento(TDataNascimento.getText());
+					medico.setRG(TRG.getText());
+					medico.setSexo(TSexo.getText());
+					medico.setEstado_civil(TEstado_civil.getText());
+					int nro = Integer.parseInt(TNumero.getText());
+					medico.setEndereco(TRua.getText(), nro, TComplemento.getText(), TBairro.getText(), TCEP.getText(), TCidade.getText());
+					medico.setCargo(TCargo.getText());
+					medico.setData_admissao(TAdmissao.getText());
+					double vlr = Double.parseDouble(TSalario.getText());
+					medico.setSalario(vlr);
+					nro = Integer.parseInt(TMatricula.getText());
+					medico.setMatricula(nro);
+					medico.setSistema(TLogin.getText(), PSenha.getText());				
+					DadosFuncionarios.cadastrar(medico);
+					JCadastroM med = new JCadastroM(Tcpf.getText());
 					med.setVisible(true);
 					med.setLocationRelativeTo(null);
 					med.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+					
 				}
+				OutrosFuncionarios func = new OutrosFuncionarios();
+				func.setNome(TNomeCompleto.getText());
+				func.setData_nascimento(TDataNascimento.getText());
+				func.setCPF(Tcpf.getText());
+				func.setData_nascimento(TDataNascimento.getText());
+				func.setRG(TRG.getText());
+				func.setSexo(TSexo.getText());
+				func.setEstado_civil(TEstado_civil.getText());
+				int nro = Integer.parseInt(TNumero.getText());
+				func.setEndereco(TRua.getText(), nro, TComplemento.getText(), TBairro.getText(), TCEP.getText(), TCidade.getText());
+				func.setCargo(TCargo.getText());
+				func.setData_admissao(TAdmissao.getText());
+				double vlr = Double.parseDouble(TSalario.getText());
+				func.setSalario(vlr);
+				nro = Integer.parseInt(TMatricula.getText());
+				func.setMatricula(nro);
+				func.setSistema(TLogin.getText(), PSenha.getText());				
+				DadosFuncionarios.cadastrar(func);
 				dispose();
 			}
 		});

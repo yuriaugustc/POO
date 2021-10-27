@@ -18,5 +18,8 @@
     <fullyQualifiedTypeName name="TrabalhoPOOI.PacienteComPlano"/>
     <fullyQualifiedTypeName name="TrabalhoPOOI.DadosPacComPlano"/>
     <fullyQualifiedTypeName name="TrabalhoPOOI.DadosPacSemPlano"/>
+    <fullyQualifiedTypeName name="TrabalhoPOOI.Funcionario"/>
+    <fullyQualifiedTypeName name="TrabalhoPOOI.OutrosFuncionarios"/>
     <fullyQualifiedTypeName name="TrabalhoPOOI.DadosFuncionarios"/>
+    <fullyQualifiedTypeName name="TrabalhoPOOI.Medico"/>
 </qualifiedTypeNameHistroy>

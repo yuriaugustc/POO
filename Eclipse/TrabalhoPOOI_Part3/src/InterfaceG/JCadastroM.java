@@ -6,6 +6,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import TrabalhoPOOI.DadosFuncionarios;
+import TrabalhoPOOI.Medico;
+
 import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -22,7 +26,7 @@ public class JCadastroM extends JFrame {
 	private JPanel contentPane;
 	private JTextField TCRM;
 
-	public JCadastroM() {
+	public JCadastroM(String cpf) {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 318, 371);
@@ -76,6 +80,13 @@ public class JCadastroM extends JFrame {
 		JButton btnAvancar = new JButton("Avancar");
 		btnAvancar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Medico med = new Medico();
+				med = (Medico) DadosFuncionarios.buscar(cpf);
+				med.setCRM(TCRM.getText());
+				med.setNomeEspecialidade(txtpnEspecialidades.getText()); //sei que tá errado, mas não consegui arrumar a tempo   ;-;
+				DadosFuncionarios.remove(cpf);
+				DadosFuncionarios.cadastrar(med);
+				DadosFuncionarios.write();
 				dispose();
 			}
 		});
