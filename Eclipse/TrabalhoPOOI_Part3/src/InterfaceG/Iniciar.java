@@ -42,7 +42,7 @@ public class Iniciar extends JFrame {
 	public Iniciar() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 236);
+		setBounds(100, 100, 450, 283);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -89,7 +89,7 @@ public class Iniciar extends JFrame {
 		
 		JButton login = new JButton("Login no Sistema");
 		login.setFont(new Font("Bookman Old Style", Font.ITALIC, 14));
-		login.setBounds(228, 90, 151, 39);
+		login.setBounds(131, 184, 151, 39);
 		login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JLogin login = new JLogin();
@@ -112,5 +112,18 @@ public class Iniciar extends JFrame {
 			}
 		});
 		desktopPane.add(remove);
+		
+		JButton btnAgendamento = new JButton("Agendamento");
+		btnAgendamento.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JAgendamento jag = new JAgendamento();
+				jag.setVisible(true);
+				jag.setLocationRelativeTo(null);
+				jag.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+			}
+		});
+		btnAgendamento.setFont(new Font("Bookman Old Style", Font.ITALIC, 14));
+		btnAgendamento.setBounds(228, 83, 151, 39);
+		desktopPane.add(btnAgendamento);
 	}
 }
