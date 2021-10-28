@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="TrabalhoPOOI.PacienteSemPlano"/>
-    <fullyQualifiedTypeName name="TrabalhoPOOI.DadosPlanoSaude"/>
     <fullyQualifiedTypeName name="TrabalhoPOOI.Consulta"/>
-    <fullyQualifiedTypeName name="TrabalhoPOOI.DadosFuncionarios"/>
     <fullyQualifiedTypeName name="TrabalhoPOOI.Funcionario"/>
-    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
     <fullyQualifiedTypeName name="TrabalhoPOOI.Paciente"/>
     <fullyQualifiedTypeName name="TrabalhoPOOI.DadosPaciente"/>
+    <fullyQualifiedTypeName name="TrabalhoPOOI.DadosConsulta"/>
+    <fullyQualifiedTypeName name="TrabalhoPOOI.PlanoDeSaude"/>
+    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+    <fullyQualifiedTypeName name="TrabalhoPOOI.DadosPlanoSaude"/>
+    <fullyQualifiedTypeName name="TrabalhoPOOI.PacienteSemPlano"/>
+    <fullyQualifiedTypeName name="TrabalhoPOOI.DadosPacSemPlano"/>
+    <fullyQualifiedTypeName name="TrabalhoPOOI.PacienteComPlano"/>
+    <fullyQualifiedTypeName name="TrabalhoPOOI.DadosPacComPlano"/>
+    <fullyQualifiedTypeName name="TrabalhoPOOI.Medico"/>
+    <fullyQualifiedTypeName name="TrabalhoPOOI.DadosFuncionarios"/>
 </qualifiedTypeNameHistroy>
