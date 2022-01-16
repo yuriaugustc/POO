@@ -1,4 +1,0 @@
-INDEX VERSION 1.131+D:\code\github\POO\Eclipse\TrabalhoPOOI_Part3\.metadata\.plugins\org.eclipse.jdt.core
-1865797976.index
-3413725848.index
-1067094681.index
